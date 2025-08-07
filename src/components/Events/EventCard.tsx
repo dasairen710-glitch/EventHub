@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Calendar, MapPin, Users, Clock } from 'lucide-react';
+import { Calendar, MapPin, Users, Clock, User } from 'lucide-react';
 import { Event } from '../../types';
 import { format, parseISO } from 'date-fns';
 

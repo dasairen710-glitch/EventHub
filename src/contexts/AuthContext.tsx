@@ -76,15 +76,21 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           .select()
           .single();
 
-        if (createError) throw createError;
+        if (createError) {
+          console.error('Error creating user profile:', createError);
+          setUser(null);
+          return;
+        }
         setUser(createdUser);
       } else if (error) {
-        throw error;
+        console.error('Error fetching user profile:', error);
+        setUser(null);
       } else {
         setUser(profile);
       }
     } catch (error) {
       console.error('Error fetching user profile:', error);
+      setUser(null);
     } finally {
       setLoading(false);
     }
